@@ -1,0 +1,19 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/134240
+
+function solution(food) {
+  var answer = '';
+
+  for (let i = 1; i < food.length; i++) {
+    let cnt = Math.floor(food[i] / 2);
+
+    answer += i.toString().repeat(cnt);
+  }
+
+  answer += '0';
+
+  for (let i = answer.length - 2; i >= 0; i--) {
+    answer += answer.charAt(i);
+  }
+
+  return answer;
+}
