@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/131128
+
 function solution(x, y) {
   var answer = '';
   const arrX = x.split('');
@@ -6,6 +8,53 @@ function solution(x, y) {
     const curX = arrX.filter((el) => Number(el) === i).length;
     const curY = arrY.filter((el) => Number(el) === i).length;
     answer += String(i).repeat(Math.min(curX, curY));
+  }
+
+  answer = answer === '' ? '-1' : answer;
+  return answer.startsWith(0) ? '0' : answer;
+}
+
+// 또 다른 풀이
+function solution2(X, Y) {
+  var answer = '';
+  const arrX = X.split('').sort((a, b) => b - a);
+  const arrY = Y.split('').sort((a, b) => b - a);
+  let arrXlen = arrX.length;
+  let arrYlen = arrY.length;
+
+  for (let i = 9; i >= 0; i--) {
+    let x = 0;
+    let y = 0;
+    let isX = false;
+    let isY = false;
+
+    while (true) {
+      if (arrXlen === 0 || arrYlen === 0) {
+        break;
+      } else {
+        if (Number(arrX[arrX.length - arrXlen]) === i) {
+          arrXlen -= 1;
+          x++;
+          isX = true;
+        } else {
+          isX = false;
+        }
+
+        if (Number(arrY[arrY.length - arrYlen]) === i) {
+          arrYlen -= 1;
+          b++;
+          isY = true;
+        } else {
+          isY = false;
+        }
+
+        if (!isX && !isY) {
+          break;
+        }
+      }
+    }
+
+    answer += String(i).repeat(Math.min(x, b));
   }
 
   answer = answer === '' ? '-1' : answer;
