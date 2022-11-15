@@ -1,0 +1,21 @@
+function solution(array) {
+  var answer = 0;
+  const arr = [];
+  let cnt = 1;
+  let max = 0;
+  const sortArr = array.sort((a, b) => a - b);
+
+  for (let i = 0; i < array.length; i++) {
+    if (sortArr[i] !== sortArr[i + 1]) {
+      arr.push({ num: sortArr[i], fre: cnt });
+      cnt = 1;
+    } else {
+      arr[{ num: sortArr[i], fre: cnt++ }];
+    }
+    max = Math.max(max, cnt);
+  }
+
+  const newArr = arr.filter((el) => max === el.fre);
+
+  return newArr.length >= 2 ? -1 : newArr[0].num;
+}
