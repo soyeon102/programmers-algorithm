@@ -1,0 +1,25 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/12915
+
+function solution(strings, n) {
+  var answer = [];
+
+  answer = strings.sort((a, b) => {
+    if (a.charCodeAt(n) === b.charCodeAt(n)) {
+      return a.localeCompare(b);
+    } else {
+      return a.charCodeAt(n) - b.charCodeAt(n);
+    }
+  });
+
+  return answer;
+}
+
+// 또 다른 풀이
+// 속도가 훨씬 빠름
+function solution(strings, n) {
+  var answer = [];
+
+  answer = strings.sort().sort((a, b) => a.charCodeAt(n) - b.charCodeAt(n));
+
+  return answer;
+}
