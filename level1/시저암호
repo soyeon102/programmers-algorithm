@@ -1,0 +1,21 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/12926
+
+function solution(s, n) {
+  var answer = '';
+  let arr = s.split('');
+
+  arr.map((el, i) => {
+    if (el === ' ') {
+      answer += ' ';
+    } else {
+      const str = el.charCodeAt();
+      if (str + n > 122 || (str <= 90 && str + n > 90)) {
+        answer += String.fromCharCode(str + n - 26);
+      } else {
+        answer += String.fromCharCode(str + n);
+      }
+    }
+  });
+
+  return answer;
+}
