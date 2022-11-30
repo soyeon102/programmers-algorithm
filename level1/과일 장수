@@ -1,0 +1,16 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/135808
+
+function solution(k, m, score) {
+  var answer = 0;
+  score.sort((a, b) => b - a);
+
+  let min = m - 1;
+  let len = Math.floor(score.length / m);
+
+  for (let i = 0; i < len; i++) {
+    answer += score[min] * m;
+    min += m;
+  }
+
+  return answer;
+}
