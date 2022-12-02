@@ -5,12 +5,12 @@ function solution(number, limit, power) {
   const divisorArr = [];
 
   function getDivisors(num) {
-    let cnt = 0;
+    let cnt = 1;
 
     if (num === 1) {
       divisorArr.push(1);
     } else {
-      for (let i = 1; i <= num; i++) {
+      for (let i = 1; i <= num / 2; i++) {
         if (num % i === 0) {
           cnt++;
         }
