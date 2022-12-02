@@ -1,0 +1,35 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/136798
+
+function solution(number, limit, power) {
+  var answer = 0;
+  const divisorArr = [];
+
+  function getDivisors(num) {
+    let cnt = 0;
+
+    if (num === 1) {
+      divisorArr.push(1);
+    } else {
+      for (let i = 1; i <= num; i++) {
+        if (num % i === 0) {
+          cnt++;
+        }
+      }
+      divisorArr.push(cnt);
+    }
+  }
+
+  for (let i = 1; i <= number; i++) {
+    getDivisors(i);
+  }
+
+  for (let i = 1; i < divisorArr.length; i++) {
+    if (divisorArr[i] > limit) {
+      divisorArr[i] = power;
+    }
+  }
+
+  answer = divisorArr.reduce((acc, cur) => acc + cur, 0);
+
+  return answer;
+}
