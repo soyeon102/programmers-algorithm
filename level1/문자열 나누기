@@ -23,3 +23,25 @@ function solution(s) {
 
   return answer;
 }
+
+// 또 다른 풀이 (재귀법)
+/*
+  function solution(s) {
+    const divive = (s, answer) => {
+      if (!s.length) return answer;
+      // console.log(s, answer);
+
+      const firstS = s[0];
+      let cnt = 1;
+      for (let i = 1; i < s.length; i++) {
+        if (firstS !== s[i]) cnt--;
+        else cnt++;
+        if (cnt == 0) {
+          return divive(s.slice(i + 1), answer + 1);
+        }
+      }
+      return answer + 1;
+    };
+    return divive(s, 0);
+  }
+*/
