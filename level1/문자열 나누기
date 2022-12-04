@@ -1,0 +1,25 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/140108
+
+function solution(s) {
+  var answer = 0;
+  let str1 = '';
+  let str2 = '';
+
+  for (let i = 0; i < s.length; i++) {
+    if (str1 === '') {
+      str1 = s[i];
+    } else {
+      str1.charAt(0) === s[i] ? (str1 += s[i]) : (str2 += s[i]);
+    }
+
+    if (str1.length === str2.length) {
+      answer++;
+      str1 = '';
+      str2 = '';
+    }
+  }
+
+  if (str1 !== '') answer++;
+
+  return answer;
+}
