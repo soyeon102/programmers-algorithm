@@ -1,0 +1,24 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/138477
+
+function solution(k, score) {
+  var answer = [];
+  const arr = [];
+
+  for (let i = 0; i < score.length; i++) {
+    if (i < k) {
+      arr.push(score[i]);
+    } else {
+      if (score[i] > Math.min(...arr)) {
+        arr.push(score[i]);
+        arr.sort((a, b) => b - a);
+        arr.pop();
+      }
+    }
+
+    answer.push(Math.min(...arr));
+
+    console.log(arr);
+  }
+
+  return answer;
+}
