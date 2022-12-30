@@ -1,0 +1,13 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/147355
+
+function solution(t, p) {
+  const strLen = p.length;
+  const arr = [];
+
+  for (let i = 0; i <= t.length - strLen; i++) {
+    let num = t.slice(i, i + strLen);
+    arr.push(num);
+  }
+
+  return arr.filter((number) => Number(number) <= Number(p)).length;
+}
